@@ -57,6 +57,12 @@ This script will:
 - Build a FAISS vector store
 - Save the vector store to disk as `vectorstore.pkl`
 
+3. Run the Streamlit app:
+```bash
+streamlit run streamlit_app.py
+```
+This will start the web application and automatically open it in your default browser.
+
 ## Development
 
 - The project uses `langchain` for document loading and processing
