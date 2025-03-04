@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
 from langchain.vectorstores.faiss import FAISS
+from streamlit.components.v1 import html
 
 
 def load_vector_store():
@@ -26,16 +27,16 @@ def main():
     # Load environment variables
     load_dotenv()
 
-    st.title("Local Learning Q&A")
+    st.title("Welcome to Marczel AI’s Hypnosis Hub")
 
     # Explanation or instructions
     st.write(
-        "Ask a question about the content in `content/` folder and get an AI-powered answer."
+        "Discover guided hypnosis sessions for wealth, health, and relationships. Ask your question to begin your transformative journey."
+        "Empower your mind and unlock your full potential with Marczell AI’s guided hypnosis. Ask anything and discover the path to a richer life."
     )
 
     # User input
-    user_query = st.text_input("Enter your question here...")
-
+    user_query = st.text_input("Type your hypnosis question or goal here...")
     # On button click, process the query
     if st.button("Get Answer"):
         if user_query.strip():
@@ -62,6 +63,13 @@ def main():
             st.write("**Answer:**", answer)
         else:
             st.warning("Please enter a question before clicking 'Get Answer'.")
+
+    # Add Eleven Labs widget
+    eleven_labs_html = """
+    <elevenlabs-convai agent-id="kb5KeSOK5l9WpYhuK0Iz"></elevenlabs-convai>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+    """
+    html(eleven_labs_html, height=175)
 
 
 if __name__ == "__main__":
